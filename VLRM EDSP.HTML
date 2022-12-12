@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EDSP Quick Links</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+h2 {
+  text-align: center;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  text-align: center;
+  /*background-color: #f1f1f1;*/
+  text-shadow: 1px 1px 30px #333333;
+  margin: 10px;
+  border-radius:5px;
+  font-weight: bold;
+  color:white;
+  font-size: 14px;
+
+}
+
+.card{
+ cursor: pointer;
+}
+
+
+</style>
+<style>
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav-right {
+  float: right;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+* {box-sizing: border-box}
+body {font-family: Arial, Helvetica, sans-serif;}
+
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+  margin-top: 5px;
+}
+
+.navbar a {
+/*  border-style: solid;*/
+  /*border-width: 1px;*/
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  width: 25%; /* Four links of equal widths */
+  text-align: center;
+  border-radius: 5px;
+ 
+}
+
+.navbar a:hover {
+  background-color: #000;
+}
+
+.navbar a.active {
+  background-color: #4CAF50;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+</style>
+<script>
+
+var links={
+   "one": [
+      {
+         "name": "Automated gate",
+         "link": "https://www.amazonlogistics.eu/yms/sesameGateConsole#/KTMA/entry"
+      }, 
+      {
+         "name": "Inbound",
+         "link": "https://www.amazonlogistics.eu/ssp/dock/hrz/ib"
+      }, 
+      {
+         "name": "Outbound ",
+         "link": "https://www.amazonlogistics.eu/ssp/dock/hrz/ob"
+      },  
+   ],
+   "two1": [
+ {
+         "name": "ZBRI",
+         "link": "https://www.amazonlogistics.eu/zbri/#/allocate"
+      }, 
+      {
+         "name": "Station Command Center",
+         "link": "https://www.amazonlogistics.eu/station/dashboard/problemsolve"
+      }, 
+      {
+         "name": "Cortex",
+         "link": "https://logistics.amazon.in/operations/execution/itineraries?selectedDay=2022-12-06&serviceAreaId=0d22c973-2699-4767-a64b-3c7038b76c29"
+      }, 
+      {
+         "name": "FC Menu",
+         "link": "https://www.amazonlogistics.eu/sortcenter/m/containerization/h="
+      }, 
+      {
+         "name": "C2D",
+         "link": "https://www.amazonlogistics.eu/station/dashboard/stationpickupvisibility="
+      }, 
+      {
+         "name": "BTS Survey Form",
+         "link": "https://survey-az.tfaforms.net/2457"
+      }, 
+   ],
+   "three": [
+      {
+         "name": "Retina",
+         "link": "https://www.amazonlogistics.eu/retina/#/"
+      }, 
+      {
+         "name": "River",
+         "link": "https://nocexceptions.auth.us-east-1.amazoncognito.com/login?response_type=code&client_id=7hlc42ih6ih0jk8vipm22qup2t&redirect_uri=https://nocexceptions.river.amazonoperations.app&state=aHR0cHM6Ly9ub2NleGNlcHRpb25zLnJpdmVyLmFtYXpvbm9wZXJhdGlvbnMuYXBw"
+      }, 
+      {
+         "name": "Item Missing",
+         "link": "https://survey-az.tfaforms.net/1491"
+      },
+   ]
+};
+
+
+function addLinks(name){
+  
+var cont=document.getElementById("linkcontent");
+cont.innerHTML="";
+
+var i;
+
+if(name=="two"){
+  
+  var linksTemp=links["two1"];
+
+  cont.innerHTML +="<h2>IMDb Vetting links</h2>"
+  for (i = 0; i < linksTemp.length; i++) 
+  cont.innerHTML +="<div class='col-sm-3'><a target='_blank' class='card btn btn-info btn-block' href='"+linksTemp[i]["link"]+"';>"+linksTemp[i]["name"]+"</a></div>";
+  
+  cont.innerHTML +="<h2></h2>"
+  var linksTemp=links["two2"];
+  for (i = 0; i < linksTemp.length; i++) 
+  cont.innerHTML +="<div class='col-sm-3'><a target='_blank' class='card btn btn-warning btn-block' href='"+linksTemp[i]["link"]+"';>"+linksTemp[i]["name"]+"</a></div>";
+
+  return;
+}
+
+var linksTemp=links[name];
+for (i = 0; i < linksTemp.length; i++) {
+  cont.innerHTML +="<div class='col-sm-3'><a target='_blank' class='card btn btn-warning btn-block' href='"+linksTemp[i]["link"]+"';>"+linksTemp[i]["name"]+"</a></div>";
+}
+
+
+};
+
+
+var ids=["one","two","three","four","five","six","seven"];
+var ids1=["home","about","contact"];
+
+function loadContent(elmnt,name) {
+  
+  for(var j=0;j<ids.length;j++)
+    document.getElementById(ids[j]).className="";
+  elmnt.className = "active";
+
+addLinks(name);
+console.log("Links added");
+
+};
+
+function hideContents()
+{
+  document.getElementById("linksbody").style.display="none";
+
+ for(var j=0;j<ids.length;j++)
+    document.getElementById(ids[j]).className="";
+
+  for(var j=0;j<ids1.length;j++)
+    document.getElementById(ids1[j]).className="";
+};
+
+function loadContact(elmnt) {
+  hideContents();
+  elmnt.className="active";
+
+var cont=document.getElementById("linkcontent");
+cont.innerHTML="";
+document.getElementById("aboutinfo").style.display="block";
+
+};
+
+function loadAbout(elmnt) {
+  hideContents();
+
+  elmnt.className="active";
+
+var cont=document.getElementById("linkcontent");
+cont.innerHTML="<h2><b><u>About IMDb</u></b></h2>";
+
+cont.innerHTML+="<h3 style='padding:30px;'>IMDb is the world's most popular and authoritative source for movie, TV and celebrity content, designed to help fans explore the world of movies and shows and decide what to watch.\nOur searchable database includes millions of movies, TV and entertainment programs and cast and crew members. We help you jog your memory about a movie, show, or person on the tip of your tongue, find the best movie or show to watch next, and empower you to share your entertainment knowledge and opinions with the world’s largest community of fans.</h3>";
+
+document.getElementById("aboutinfo").style.display="none";
+
+};
+
+function loadHome(elmnt) {
+ for(var j=0;j<ids.length;j++)
+    document.getElementById(ids[j]).className="";
+
+  for(var j=0;j<ids1.length;j++)
+    document.getElementById(ids1[j]).className="";
+
+  elmnt.className="active";
+
+var cont=document.getElementById("linkcontent");
+cont.innerHTML="";
+
+document.getElementById("linksbody").style.display="block";
+document.getElementById("aboutinfo").style.display="none";
+
+};
+
+</script>
+
+<body>
+<div class="topnav">
+  <!-- <img src="amazon.png" alt="IMDB" w/> -->
+  <a id="home" class="active" href="#home" onclick="loadHome(this)">Home</a>
+  <a id="contact" href="#contact" onclick="loadContact(this)">Contact</a>
+  <div class="topnav-right">
+    <a id="about" href="#about" onclick="loadAbout(this)">About</a>
+  </div>
+</div>
+<div class="container">
+  <h2>EDSP Quick Links</h2>  
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="a.jpeg" alt="Los Angeles" style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="b.jpg" alt="Chicago" style="width:100%;">
+      </div>
+    
+      <div class="item">
+        <img src="c.jpg" alt="New york" style="width:100%;">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  
+</div>
+<div class="navbar" id="linksbody">
+  <a href="#" id="one" onclick="loadContent(this, 'one')" >Load Related</a> 
+  <a href="#" id="two" onclick="loadContent(this, 'two')">Daily followup </a> 
+  <a href="#" id="three" onclick="loadContent(this, 'three')">Others </a> 
+  <a href="#" id="four" onclick="loadContent(this, 'four')"></a>
+  <a href="#" id="five" onclick="loadContent(this, 'five')"></a>
+  <a href="#" id="six" onclick="loadContent(this, 'six')"></a>
+  <a href="#" id="seven" onclick="loadContent(this, 'seven')"></a>
+</div>
+<div class="container-fluid" style="margin: 2px;">
+<div id="linkcontent" class="row">
+
+
+</div>
+</div>
+
+<div id="aboutinfo" style="margin: 20px;display: none;">
+<h3><b>Company Address</b></h3>
+<h4>Amazon Development Center</h4>
+<h4>SP Infocity, Main Street, MGR Nagar, Perungudi/Kandanchavadi, Chennai Tamil Nadu 600096</h4>
+<h4>India</h4>
+
+<h3><b>Team IMDb</b></h3>
+<h4>Operations Manager(L5) - Gerald Michael (jayantgj@amazon.com)</h4>
+<h4>Manager(L4) - Caroline Sylvia (jcarolin@amazon.com)</h4>
+<h4>Subject Matter Expert(SME) - Priscilla Philip (priscip@amazon.com)</h4>
+<h4>Subject Matter Expert(SME) - Aditya Balasubramanian (baditya@amazon.com)</h4>
+
+<h3><b>Site Created By Yugendar P</b></h3>
+<h4>If you want to add any links or documents in this site, Please feel free to drop me a mail at (yugenp@amazon.com)</h4>
+</div>
+
+</body>
+
+</html>
+
